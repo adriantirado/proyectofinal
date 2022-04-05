@@ -27,11 +27,8 @@ const Tablealum = () => {
                 <tbody>
                 { candidatos.map((candi, index) => {
                         return (
-                                <Candidatos
-                                    key={index} 
-                                    candi={candi}
-                                    
-                                >
+                                <Candidatos key={index}
+                                candi={candi}>
                                 </Candidatos>
                             )
                 }
