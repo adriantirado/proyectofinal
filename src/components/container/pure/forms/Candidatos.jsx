@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { user } from '../../../../models/user.class';
 import { ESTADOS } from '../../../../models/estados.enum';
-
+import 'bootstrap/dist/css/bootstrap.css';
 const Candidatos = (user) => {
 
     function candidatosEstados() {

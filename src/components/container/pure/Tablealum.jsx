@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Candidatos from './forms/Candidatos';
 import { user } from '../../../models/user.class';
 import { ESTADOS } from '../../../models/estados.enum';
+import { Container, Flex } from '@chakra-ui/react';
 
 const Tablealum = () => {
     
@@ -13,30 +14,12 @@ const Tablealum = () => {
 
 
     return (
-       
-            <table>
-                <thead>
-                    <tr>
-                        <th scope='col'>Nombre</th>
-                        <th scope='col'>Ubicacion</th>
-                        <th scope='col'>Telefono</th>
-                        <th scope='col'>Tecnologias</th>
-                        <th scope='col'>Estado</th>      
-                    </tr>
-                </thead>
-                <tbody>
-                { candidatos.map((candi, index) => {
-                        return (
-                                <Candidatos key={index}
-                                candi={candi}>
-                                </Candidatos>
-                            )
-                }
-                )}            
-               </tbody>
-               
-            </table>
+      <Container>
           
+      </Container>
+      
+       
+            
       
     );
 }
