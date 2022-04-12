@@ -34,7 +34,7 @@ const Loginformik = () => {
       const { values } = formik;
       console.log(values);
       return (
-        <>
+        <Box>
           <Flex paddingLeft={70} paddingTop={120} fontSize={24}>
             <Text>OpenBootcamp </Text>
             <Text color="#75E6DA">
@@ -43,12 +43,11 @@ const Loginformik = () => {
           </Flex>
           <Form>
             <Field name="email">
-              {({ field, form,errors,touched}) => (
+              {({ field, form}) => (
                 <FormControl paddingLeft={70} paddingTop={50} >
                   <FormLabel htmlFor="email">Email</FormLabel>
                   <Input {...field} id="email" rounded='full' variant='filled'  w='400px' placeholder="Introduce tu correo" />
-                  {form.touched.email && form.errors.email ? (
-                                            <div>{form.errors.email}</div>
+                  {form.touched.email && form.errors.email ? (<Text color='red' display='inline'>{form.errors.email}</Text>
                                         ): null}
                 </FormControl>
               )}
@@ -59,7 +58,7 @@ const Loginformik = () => {
                   <FormLabel htmlFor="password">Contraseña</FormLabel>
                   <Input {...field} id="password" type='password' rounded='full' w='400px' placeholder="Introduce tu contraseña" variant='filled'/>
                   {form.touched.password && form.errors.password ? (
-                                            <div>{form.errors.password}</div>
+                                            <Text color='red' display='inline'>{form.errors.password}</Text>
                                         ): null}
                 </FormControl>
 
@@ -68,14 +67,14 @@ const Loginformik = () => {
             <HStack w="460px" justify="space-between" paddingTop={10}>
               <Checkbox paddingLeft={70}>Recuerdame</Checkbox>
               <Button variant="link" colorScheme="blue">
-                He olvidado la contraseÃ±a
+                He olvidado la contraseña
               </Button>
             </HStack>
             <Button marginLeft={70} marginTop={19} w='400px' backgroundColor="#75E6DA" color="white" type="submit">Iniciar sesion</Button>
              
           </Form>
-          
-        </>
+          </Box>
+        
       );
     }}
   </Formik>

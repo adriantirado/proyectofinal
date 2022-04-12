@@ -6,9 +6,9 @@ import { Box,Flex,Image, Img} from '@chakra-ui/react';
 const LoginPage = () => {
  
   return (
-    <Box>
+    <Box overflowX='hidden' overflowY='hidden'>
     
-    <Loginformik ></Loginformik>
+    <Loginformik></Loginformik>
     <Img src={background} marginLeft={530} height='99vh' width='120vh'  marginTop='-500px'></Img>
     </Box>
   
