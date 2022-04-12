@@ -8,11 +8,13 @@ import {
   Container,
   Divider,
   Flex,
+  Icon,
   Input,
   InputGroup,
   InputLeftElement,
   Menu,
   Spacer,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import Menudatos from "../../Menudatos";
@@ -51,92 +53,62 @@ const Tablealum = () => {
     { value: 'angular', label: 'ANGULAR' },
    { value: 'javascript', label: 'JAVASCRIPT' },
    { value: 'php', label: 'PHP' },
-   { value: 'python', label: 'PYTHON' }
+   { value: 'python', label: 'PYTHON' },
   ];
-
+  const sidebar=[
+    {nombre:"Ofertas", icon: FaBriefcase ,link:'ofertas'},
+    {nombre:"Candidatos", icon:FiUsers, link:'candidatos'},
+    {nombre:'CLientes', icon:BiBuildings, link:'clientes'},
+    {nombre:'Entrevistas',icon:BiCalendar,link:'entrevista'}
+  ]
   return (
     <Flex margin="0" padding="0" >
       {/*MEnu*/}
      
-      <Flex backgroundColor="#08152e" height="100vh" width="250px" >
-        <Flex marginBottom="500px">
-          {" "}
-          <Menudatos nombre="Ofertas" icon={<FaBriefcase />} link="/ofer" />
-        </Flex>
-        <Flex marginLeft="-108px" marginBottom="420px">
-          <Menudatos nombre="Candidatos" icon={<FiUsers />} link="/ofer" />{" "}
-        </Flex>
-        <Flex marginLeft="-138px" marginBottom="340px">
-          <Menudatos nombre="Clientes" icon={<BiBuildings />} link="/ofer" />
-        </Flex>
-        <Flex marginLeft="-112px" marginBottom="260px">
-          <Menudatos nombre="Entrevistas" icon={<BiCalendar />} link="/ofer" />{" "}
-        </Flex>
-      </Flex>
-     
-      {/*Buscador por Jquery*/}
-      <Flex marginLeft="50px" marginTop="20px">
-        <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            children={<FiSearch color="gray.300" />}
-          />
-          <Input
-            marginTop="-660px"
-            variant="unstyled"
-            type="text"
-            name="buscador"
-            id="buscador"
-            placeholder="Buscar por Candidatos por Nombre, DNI, etc..."
-            w="400px"
-            size="sm"
-          ></Input>
-        </InputGroup>
-        <Text marginLeft="80vh">Nombre</Text>
-      </Flex>
-     
-      {/*Buscador por Jquery2*/}
-      <Flex marginLeft="-1070px" marginTop="100px">
-        {" "}
-        <Text fontWeight="bold">Candidatos</Text>
-      </Flex>
-      <Flex marginLeft="30px" marginTop="100px">
-        <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            children={<FiSearch color="gray.300" />}
-          />
-          <Input
-            variant="filled"
-            type="text"
-            name="buscador2"
-            id="buscador2"
-            placeholder="Buscar por Nombre, Email o Palabra clave"
-            w="313px"
-            size="sm"
-          ></Input>
-        </InputGroup>
-
-        <Button
-          marginLeft="145px"
-          leftIcon={<IoMdAdd />}
-          variant="outline"
-          w="250px"
-          type="button"
-        >
-          Añadir alumnos
-        </Button>
-      </Flex>
-      <Flex marginTop='100px' marginLeft='280px'>
-      <Text fontWeight='bold' marginTop='-5px' marginLeft='-240px'>Filtros de busqueda</Text><Spacer></Spacer>
-        <FiTrash2  ></FiTrash2>
-      </Flex>
-      <Flex marginTop='180px' marginLeft='-240px' >
-      <Select options={tecno} placeholder='Escribe para buscar...' />
-      
+      <Flex backgroundColor="#08152e" height="100vh" width="250px" p='12px' gap='25px' direction='column'>
+      <Flex direction='column' gap='20px' paddingTop='75px'>
+        {sidebar.map((item,i)=>(
+          <Menudatos key={i} nombre={item.nombre} icon={item.icon} link={item.link}></Menudatos>
+        ))}
       </Flex>
       
-
+      </Flex>
+     
+       {/*Buscador por Jquery*/}
+       <Box px='20px'>
+      
+        <InputGroup >
+       
+        <InputLeftElement paddingTop='20px' pointerEvents="none" children={<Icon as={FiSearch} color="gray.300" />} variant="unstyled" />
+        <Input paddingTop='20px' type="text" placeholder="Buscar por Candidatos por Nombre, DNI, etc..." w='400px' size='sm' border='none' />
+        
+         
+        
+      </InputGroup>
+      <Flex  marginTop='75px'>
+      <Text  px='20px'  fontWeight='bold'>Candidatos</Text>
+      
+      <InputGroup >
+        <InputLeftElement  pointerEvents="none" children={<Icon as={FiSearch} color="gray.300" />}  />
+        <Input  type="text" placeholder="Buscar por Candidatos por Nombre, DNI, etc..." w='350px' size='sm' border='none' variant="filled"  /> 
+       
+      </InputGroup>
+      
+     
+      
+      
+      </Flex>
+      <Flex px='350px' paddingTop='5px'>
+        <Button  size='md'  width='100px'>Añadir alumnos</Button>
+        </Flex>
+       
+    </Box>
+      
+        <Spacer></Spacer>
+        <Flex paddingTop='20px' px='40px'>
+          <Text>Nombre</Text>
+        </Flex>
+       
     </Flex>
   );
 };
