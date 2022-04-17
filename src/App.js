@@ -1,10 +1,13 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginPage from './pages/auth/LoginPage';
-import Tablealum from './components/container/pure/Tablealum';
-import Perfil from './components/container/pure/forms/perfil';
+
+
+import Perfil from './pages/Perfil/perfil';
 import { ChakraProvider } from '@chakra-ui/react'
-import Ofertas from './components/container/pure/forms/ofertas';
+
+import LoginPage from './pages/Login/LoginPage';
+import Tablealum from './pages/Candidatos/Tablealum';
+import Ofertas from './pages/Ofertas/ofertas';
 
 function App() {
   return (
@@ -14,7 +17,7 @@ function App() {
       <Routes>
       
         <Route path="/" element={<LoginPage />}/>
-        <Route path="/dashboard" element={<Tablealum />} />
+        <Route path="/dashboard" element={<Tablealum/>} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path='/ofer' element={<Ofertas />}></Route>
       </Routes>

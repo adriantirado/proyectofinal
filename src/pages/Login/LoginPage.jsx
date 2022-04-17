@@ -1,7 +1,7 @@
 import React from 'react';
-import background from '../auth/fotos.png';
-import Loginformik from '../../components/container/pure/forms/LoginFormik';
-import { Box,Flex,Image, Img} from '@chakra-ui/react';
+import background from '../../assets/images/fotos.png';
+import Loginformik from '../Login/Views/LoginFormik';
+import { Box,Img} from '@chakra-ui/react';
 
 const LoginPage = () => {
  
