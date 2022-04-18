@@ -32,7 +32,7 @@ export default function Filtros() {
   }
   return (
     <Flex w="100%" marginTop="15px" gap="10px" direction="column">
-    <Flex w="100%" justify="space-between">
+    <Flex w="100%" justify="space-between" marginTop='15px'>
       <Text fontWeight="bold">Filtro de busqueda </Text>
       <Icon as={FiTrash2} color="#32D4A4" />
     </Flex>

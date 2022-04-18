@@ -10,7 +10,7 @@ import {
 export default function Header() {
   return (
     <Flex
-    px="30px"
+    px="20px"
     w="100%"
     h="auto"
     justify="space-between"

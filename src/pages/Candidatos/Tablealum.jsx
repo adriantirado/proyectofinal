@@ -38,9 +38,8 @@ const Tablealum = () => {
       <Flex p="20px" direction="column" h="100%" w="100%">
         <Header></Header>
         <Flex
-          marginTop="10px"
           w="100%"
-          gap="50px"
+          gap="60px"
           justify="space-between"
           align="center"
         >
