@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Box, Button, Checkbox, color, Container, Divider, Flex, FormControl, FormLabel, HStack, Input,Text,Image} from '@chakra-ui/react';
 import { useNavigate,useHistory} from 'react-router-dom';
+import axios from 'axios';
 const Loginformik = () => {
   const loginSchema = Yup.object().shape({
     email: Yup.string().email('Ingrese un email correcto').required('Email es obligatorio'),
@@ -22,7 +23,11 @@ const Loginformik = () => {
    // We save the data in the localstorage
     await localStorage.setItem('credentials', values);
     console.log(values);
-    navigate('/dashboard');
+
+    axios.post('https://dta-beta.herokuapp.com/authAPI/login/',{
+      initialCredentials
+    })
+    
   };
 
   return (
@@ -46,7 +51,7 @@ const Loginformik = () => {
               {({ field, form}) => (
                 <FormControl paddingLeft={70} paddingTop={50} >
                   <FormLabel htmlFor="email">Email</FormLabel>
-                  <Input {...field} id="email" rounded='full' variant='filled'  w='400px' placeholder="Introduce tu correo" />
+                  <Input {...field} id="email" rounded='full' variant='filled'  w='400px' placeholder="Introduce tu correo"/>
                   {form.touched.email && form.errors.email ? (<Text color='red' display='inline'>{form.errors.email}</Text>
                                         ): null}
                 </FormControl>
@@ -56,7 +61,8 @@ const Loginformik = () => {
               {({ field, form }) => (
                 <FormControl  paddingLeft={70} paddingTop={30}>
                   <FormLabel htmlFor="password">Contraseña</FormLabel>
-                  <Input {...field} id="password" type='password' rounded='full' w='400px' placeholder="Introduce tu contraseña" variant='filled'/>
+                  <Input {...field} id="password" type='password' rounded='full' w='400px' placeholder="Introduce tu contraseña" variant='filled'
+                />
                   {form.touched.password && form.errors.password ? (
                                             <Text color='red' display='inline'>{form.errors.password}</Text>
                                         ): null}

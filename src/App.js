@@ -20,6 +20,7 @@ function App() {
         <Route path="/dashboard" element={<Tablealum/>} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path='/ofer' element={<Ofertas />}></Route>
+   
       </Routes>
     </BrowserRouter>
 
